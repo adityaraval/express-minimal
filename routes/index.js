@@ -6,12 +6,12 @@ router.get('/hello',function(req,res){
 });
 
 router.get('/testok',function(req,res){
-    console.log("GET INDEX")
+    console.log("TEST OK")
     res.Ok();
 });
 
 router.get('/testerror',function(req,res){
-    console.log("GET INDEX")
+    console.log("TEST ERROR")
     res.ServerError();
 });
 
