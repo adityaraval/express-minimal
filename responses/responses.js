@@ -27,5 +27,31 @@ router.use(function(req, res, next) {
     next();
 });
 
+router.use(function(req, res, next) {
+    res.NotFound = function(code,message,data,status_code) {
+         let object = {
+            code:code || "NOT_FOUND",
+            message:message || "No Records Found!",
+            data:data || [],
+            status_code:status_code || 404
+        }
+        return res.json(object)
+    };
+    next();
+});
+
+router.use(function(req, res, next) {
+    res.BadRequest = function(code,message,data,status_code) {
+         let object = {
+            code:code || "BAD_REQUEST",
+            message:message || "Something Bad Happened!",
+            data:data || [],
+            status_code:status_code || 400
+        }
+        return res.json(object)
+    };
+    next();
+});
+
 
 module.exports = {response:router}
