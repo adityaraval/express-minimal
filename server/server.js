@@ -7,14 +7,14 @@ import bodyParser from 'body-parser';
 const app = express()
 
 app.use(morgan('tiny'))
-
 app.use(bodyParser.json())
 
 import {dev} from '../config/env';
-
 import {indexRoute} from '../routes/index';
 import {userRoute} from '../routes/user';
+import {todoRoute} from '../routes/todo';
 import {response} from '../responses/responses';
+import {mongoose} from '../config/connection';
 
 app.get('/', function (req, res) {
   res.send('Hello World!')
@@ -23,6 +23,8 @@ app.get('/', function (req, res) {
 app.use(response);
 app.use(dev.VERSION+'/',indexRoute)
 app.use(dev.VERSION+'/user',userRoute)
+app.use(dev.VERSION+'/todo',todoRoute)
+
 
 
 app.listen(3000, function () {
