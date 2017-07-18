@@ -1,10 +1,14 @@
 import express from 'express';
 import morgan from 'morgan';
+import bodyParser from 'body-parser';
+
 
 
 const app = express()
 
 app.use(morgan('tiny'))
+
+app.use(bodyParser.json())
 
 import {dev} from '../config/env';
 
