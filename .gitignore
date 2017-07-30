@@ -13,7 +13,7 @@ jspm_packages/
 .npm
 
 # Package-Lock JSON
-#package-lock.json
+package-lock.json
 
 # Ignore Build
 dist/

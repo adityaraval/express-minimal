@@ -53,5 +53,17 @@ router.use(function(req, res, next) {
     next();
 });
 
+router.use(function(req, res, next) {
+    res.UnAuthenticated = function(code,message,data,status_code) {
+         let object = {
+            code:code || "UNAUTHENTCATED_REQUEST",
+            message:message || "You Are Not Authorized To Perform This Operation!",
+            data:data || [],
+            status_code:status_code || 401
+        }
+        return res.json(object)
+    };
+    next();
+});
 
 module.exports = {response:router}
